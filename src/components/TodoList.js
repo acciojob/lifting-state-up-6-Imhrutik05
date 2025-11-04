@@ -1,7 +1,6 @@
 import React from "react";
 
 function TodoList({todos, handleComplete}){
-    console.log(todos)
     return (
         <div>
             <h2>Child Component</h2>
@@ -10,9 +9,9 @@ function TodoList({todos, handleComplete}){
                     <li key={todo.id}>
                         <span>{todo.text}</span>
                         {!todo.completed ? (
-                            <button onClick={() => handleComplete(todo.id)}>Complete</button>
+                            <button data-testid={`complete-${todo.id}`} onClick={() => handleComplete(todo.id)}>Complete</button>
                         ) : (
-                            <span></span>
+                            <span data-testid={`complete-${todo.id}`}></span>
                         )}
                     </li>
                 ))}
