@@ -12,9 +12,11 @@ const App = () => {
 
   // this function takes an id, and maps on the array todos, if the id matches with todo.id then it modifies that todo object (specifically modifies completed:true)
   const handleComplete = (id) => {
-    setTodos(todos.map(todo => 
-      todo.id === id ? {...todo, completed:true} : todo
-    ));
+    setTodos(prevTodos => 
+      prevTodos.map(todo => 
+        todo.id === id ? {...todo, completed:true} : todo
+      )
+    );
   }
   return (
     <div>
